@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.css';
+@import url("https://use.fontawesome.com/releases/v5.6.3/css/all.css");
+@import "~@ag-grid-community/all-modules/dist/styles/ag-grid.css";
+@import "~@ag-grid-community/all-modules/dist/styles/ag-theme-balham.css";
+
+body{
+    padding-left: 50px;
+    padding-top: 50px;
+}

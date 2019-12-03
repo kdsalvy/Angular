@@ -1,0 +1,24 @@
+<button (click)="getSelectedRows()">Get Selected Rows</button>
+<!-- Grouping feature is available in enterprise version only -->
+<!-- <ag-grid-angular 
+    #agGrid
+    style="width: 500px; height: 500px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData | async" 
+    [columnDefs]="columnDefs"
+    [modules]="modules"
+    rowSelection="multiple"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    >
+</ag-grid-angular> -->
+
+<ag-grid-angular 
+    #agGrid
+    style="width: 1200px; height: 500px;" 
+    class="ag-theme-balham"
+    [rowData]="rowData | async" 
+    [columnDefs]="columnDefs"
+    [modules]="modules"
+    rowSelection="multiple"
+    >
+</ag-grid-angular>

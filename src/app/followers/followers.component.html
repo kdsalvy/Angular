@@ -1,0 +1,16 @@
+<ul class="list-group">
+    <li 
+    *ngFor="let follower of followers" 
+    class="list-group-item">
+        <div>
+            <span class="media-left">
+                <img [src]="follower.avatar_url" />
+            </span>
+            <span>
+                <a [routerLink]="['/followers', follower.id, follower.login]"
+                    [queryParams]="{page: 1, order: 'newest'}">{{follower.login}}</a><br/>
+                <a [href]="follower.html_url">{{follower.html_url}}</a>
+            </span>
+        </div>
+    </li>
+</ul>

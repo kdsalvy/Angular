@@ -1,0 +1,7 @@
+{
+    "/posts/*": {
+        "target": "http://jsonplaceholder.typicode.com/posts",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

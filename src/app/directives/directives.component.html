@@ -1,0 +1,47 @@
+<h2> Directives </h2>
+<h3>ngIf, ngFor, change detection, track by</h3>
+<!-- astreix(*) needs to be put wherever we use a directive -->
+<div *ngIf="courses.length > 0; then courseList else noCourses"> List of courses
+</div>
+<button (click)="loadCourses()">Load Courses</button>
+<ng-template #courseList>
+    <button (click)="onAdd()">Add</button>
+    <ul>
+        <li *ngFor="let course of courses; even as isEven; index as i; trackBy: trackCourse">
+            {{course}}<button (click)="onRemove(i)">Remove</button><span *ngIf="isEven">(Even)</span>
+        </li>
+    </ul>  
+</ng-template>
+<ng-template #noCourses>
+    No courses yet
+</ng-template>
+<!-- hidden components are present in the dom even if the expression evaluates to false-->
+<div [hidden]="courses.length == 0">Hidden Component</div>
+
+<h3>ngSwitch</h3>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">
+            Map View
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">
+            List View
+        </a>
+    </li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map Contents...</div>
+    <div *ngSwitchCase="'list'">List Contents...</div>
+    <div *ngSwitchDefault>Default...</div>
+</div>
+<button [ngStyle]="{
+    backgroundColor: canSave ? 'blue' : 'grey',
+    color: canSave ? 'white' : 'black'
+}" (click)="canSave = !canSave">Using ngStyle</button>
+<h3>Save Traversal Operator for complex objects</h3>
+<div>Name: {{task.assignee?.name}}</div> 
+<div>Address-Location: {{task.assignee.address?.location}} addresss property undefined still no error in console</div>
+<h3>Custom Directive</h3>
+<input appCustom />

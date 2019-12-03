@@ -1,0 +1,13 @@
+<p (click)="favIt()">
+    <span [class.fas]="isSelected" [class.fa-star]="isSelected"></span>
+    <span [class.far]="!isSelected" [class.fa-star]="!isSelected"></span>
+</p>
+<h3>using ngClass</h3>
+<p (click)="loveIt()">
+    <span [ngClass]="{
+        'fa-heart': true,
+        'fas': isLoved,
+        'far': !isLoved
+    }"></span>
+</p>
+ 

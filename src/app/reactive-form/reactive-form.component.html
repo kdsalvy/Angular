@@ -1,0 +1,57 @@
+<form [formGroup]="form" (ngSubmit) = "login()">
+    <div *ngIf="form.errors" class="alert alert-danger">The username/password is invalid</div>
+    <div formGroupName = "account">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                formControlName="username"
+                id="username" 
+                type="text" 
+                class="form-control">
+            <div *ngIf="username.pending">Checking for uniqueness...</div>
+            <div 
+                class="alert alert-danger" 
+                *ngIf="username.touched && username.invalid" >
+                <div *ngIf="username.errors.required">
+                    Username is required
+                </div>
+                <div *ngIf="username.errors.cannotContainSpace">
+                    Username cannot contain space
+                </div>
+                <div *ngIf="username.errors.shouldBeUnique">
+                    Username is already taken
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input 
+                formControlName="password"
+                id="password" 
+                type="text" 
+                class="form-control">
+            <div 
+                class="alert alert-danger" 
+                *ngIf="password.touched && password.invalid" >
+                <div *ngIf="password.errors.required">
+                    Password is required
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    Password length should be minimum {{password.errors.minlength.requiredLength}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-array">
+        <input type="text" (keyup.enter)="addElement(hobby)" #hobby/>
+        <br/>
+        <ul class="list-group">
+            <li *ngFor="let hobby of hobbies.controls"
+                class="list-group-item"
+                (click)="removeElement(hobby)">
+                {{ hobby.value }}
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+</form>

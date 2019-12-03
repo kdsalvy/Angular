@@ -1,0 +1,9 @@
+img{
+    border-block-color: black;
+    height: 120px;
+    width: 110px;
+}
+
+.media-left{
+    float: left;
+}
