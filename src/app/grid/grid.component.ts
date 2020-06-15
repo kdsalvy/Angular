@@ -13,14 +13,17 @@ export class GridComponent implements OnInit {
   @ViewChild('agGrid', { static: true}) agGrid: AgGridAngular;
 
   columnDefs = [
-    {headerName: 'Make', field: 'make', sortable: true, filter: true, checkboxSelection: true },
-    {headerName: 'Model', field: 'model', sortable: true, filter: true },
-    {headerName: 'Price', field: 'price', sortable: true, filter: true },
+    {headerName: 'Make', field: 'make', sortable: true, filter: true, checkboxSelection: true, suppressSizeToFit: true},
+    {headerName: 'Model', field: 'model', sortable: true, filter: true, suppressSizeToFit: true},
+    {headerName: 'Price', field: 'price', sortable: true, filter: true, suppressSizeToFit: true},
     {headerName: 'Price', children: [
-      {headerName: 'Make', field: 'make', sortable: true, filter: true},
-      {headerName: 'Model', field: 'model', sortable: true, filter: true },
-      {headerName: 'Price', field: 'price', sortable: true, filter: true }
-    ]}
+      {headerName: 'Make', field: 'make', sortable: true, filter: true, suppressSizeToFit: true},
+      {headerName: 'Model', field: 'model', sortable: true, filter: true, suppressSizeToFit: true},
+      {headerName: 'Price', field: 'price', sortable: true, filter: true, suppressSizeToFit: true}
+    ], width: '25%'},
+    {headerName: 'Make', field: 'make', sortable: true, filter: true, checkboxSelection: true, suppressSizeToFit: true},
+    {headerName: 'Model', field: 'model', sortable: true, filter: true, suppressSizeToFit: true},
+    {headerName: 'Price', field: 'price', sortable: true, filter: true, suppressSizeToFit: true}
   ];
   
   // rowData = [

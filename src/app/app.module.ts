@@ -29,6 +29,7 @@ import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { GridComponent } from './grid/grid.component';
 import { GridService } from './services/grid.service';
+import { ChartsComponent } from './charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { GridService } from './services/grid.service';
     NavbarComponent,
     HomeComponent,
     GithubProfileComponent,
-    GridComponent
+    GridComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,10 @@ import { GridService } from './services/grid.service';
       { 
         path: 'grid', 
         component: GridComponent 
+      },
+      {
+        path: 'chart',
+        component: ChartsComponent
       },
       { 
         path: '**', 

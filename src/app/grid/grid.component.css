@@ -1,3 +1,4 @@
-.ag-theme-balham .ag-header-group-cell-label span {
-    float: right;
+.ag-theme-balham .ag-body-viewport {
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
 }
